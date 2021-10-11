@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
 import './App.css';
+import Dashboard from './Components/Dashboard';
+import MapComponent from './Components/mapComponent';
+import CreateProfile from './Components/CreateProfile';
+import Home from "./Components/Home";
+import editProfile from './Components/editProfile';
+import "bootstrap/dist/css/bootstrap.min.css"
+import { Link } from "react-router-dom";
+import {Provider} from 'react-redux'
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
+
 
 function App() {
+
   return (
+  <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Switch>
+      <Route path="/edit_profile" component={editProfile}/> 
+      <Route path="/" component={Home}/> 
+    </Switch>
     </div>
+    </Router>
   );
 }
 
